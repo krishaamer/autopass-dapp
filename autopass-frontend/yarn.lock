@@ -3575,6 +3575,11 @@ keyvaluestorage-interface@^1.0.0:
   resolved "https://registry.yarnpkg.com/keyvaluestorage-interface/-/keyvaluestorage-interface-1.0.0.tgz#13ebdf71f5284ad54be94bd1ad9ed79adad515ff"
   integrity sha512-8t6Q3TclQ4uZynJY9IGr2+SsIGwK9JHcO6ootkHCGA0CrQCRy+VkouYNO2xicET6b9al7QKzpebNow+gkpCL8g==
 
+konsta@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/konsta/-/konsta-2.0.0.tgz#74e61e6b1c90edff2a94a63d1461b727f47a9099"
+  integrity sha512-Kd2vUnWT/CQNoLWCIgWZaQyzwiSitK4DWKMYNbiu+s0oSvzxA3ENtHTj5RxXGvJ9a17UQZYgM3GUrDYtPcaJrQ==
+
 level-codec@~7.0.0:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/level-codec/-/level-codec-7.0.1.tgz#341f22f907ce0f16763f24bddd681e395a0fb8a7"
