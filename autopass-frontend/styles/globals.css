@@ -27,3 +27,7 @@
     width: 570px;
     height: 900px;
 }
+
+.fixed {
+    position: absolute !important;
+}

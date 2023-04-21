@@ -289,46 +289,32 @@ const Autopass = () => {
   }
 
   return (
-    <div className="p-5">
-      <div className="p-5 ring-1 bg-slate-50 ring-black/5 rounded-lg">
-        {isWeb3Enabled ? (
-          nowChainId == 5 ? (
+    <div className="p-5 rounded-lg">
+      {isWeb3Enabled ? (
+        nowChainId == 5 ? (
+          <div>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-atuo"
+              onClick={callEnterRaffle}
+              disabled={isLoading || isFetching}
+            >
+              {isLoading || isFetching ? (
+                <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+              ) : (
+                <div>Pay Now</div>
+              )}
+            </button>
             <div>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-atuo"
-                onClick={callEnterRaffle}
-                disabled={isLoading || isFetching}
-              >
-                {isLoading || isFetching ? (
-                  <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-                ) : (
-                  <div>Enter Raffle</div>
-                )}
-              </button>
-              <div>
-                Each ticket costs: {ethers.utils.formatUnits(entranceFee, "ether")} ETH (
-                {priceConvert(entranceFee)} USD)
-              </div>
-              <div>
-                Total prize pool: {ethers.utils.formatUnits(contractBalance, "ether")} ETH (
-                {priceConvert(contractBalance)} USD)
-              </div>
-              <div>Number of players: {numPlayers}</div>
-              <div>Number of times current account has entered: {playerTimes}</div>
-              <div>Winning probability: {winChance}</div>
-              <div>
-                Wallet address of most recent winner: {recentWinner} <br />
-                Prize won: {ethers.utils.formatUnits(winnerBalance, "ether")} ETH (
-                {priceConvert(winnerBalance)} USD)
-              </div>
+              Parking cost: {ethers.utils.formatUnits(entranceFee, "ether")} ETH (
+              {priceConvert(entranceFee)} USD)
             </div>
-          ) : (
-            <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
-          )
+          </div>
         ) : (
-          <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
-        )}
-      </div>
+          <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
+        )
+      ) : (
+        <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
+      )}
     </div>
   )
 }

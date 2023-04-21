@@ -5,7 +5,7 @@ import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="grid items-center justify-center h-screen">
       <div className="mockup-phone border-primary">
         <div className="camera"></div>
         <div className="display">
@@ -19,10 +19,6 @@ function MyApp({ Component, pageProps }) {
             </App>
           </div>
         </div>
-      </div>
-      <div>
-        <h1 className="text-4xl">Autopass Crypto</h1>
-        <p className="text-xl">Pay easily using ETH</p>
       </div>
     </div>
   )
