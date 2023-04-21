@@ -292,7 +292,11 @@ const Autopass = () => {
     <div className="p-5 rounded-lg">
       {isWeb3Enabled ? (
         nowChainId == 5 ? (
-          <div>
+          <div class="flex items-center space-x-4">
+            <div>
+              Parking cost: {ethers.utils.formatUnits(entranceFee, "ether")} ETH (
+              {priceConvert(entranceFee)} USD)
+            </div>
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-atuo"
               onClick={callEnterRaffle}
@@ -304,10 +308,6 @@ const Autopass = () => {
                 <div>Pay Now</div>
               )}
             </button>
-            <div>
-              Parking cost: {ethers.utils.formatUnits(entranceFee, "ether")} ETH (
-              {priceConvert(entranceFee)} USD)
-            </div>
           </div>
         ) : (
           <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
