@@ -295,10 +295,10 @@ const Autopass = () => {
           <div class="flex items-center space-x-4">
             <div>
               Parking cost: {ethers.utils.formatUnits(entranceFee, "ether")} ETH (
-              {priceConvert(entranceFee)} USD)
+              {priceConvert(entranceFee)} TWD)
             </div>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-atuo"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={callEnterRaffle}
               disabled={isLoading || isFetching}
             >
