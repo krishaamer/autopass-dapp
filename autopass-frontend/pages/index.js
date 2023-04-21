@@ -8,7 +8,7 @@ export default function Home() {
       <div className="container">
         <div className="mochi animate-bounce ease-in-out duration-1000"></div>
         <Head>
-          <title>Smart Contract Lottery</title>
+          <title>Autopass</title>
           <meta name="description" content="Autopass" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
