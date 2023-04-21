@@ -289,7 +289,7 @@ const Autopass = () => {
   }
 
   return (
-    <div className="p-5 rounded-lg">
+    <div className="p-5 rounded-lg bg-slate-100">
       {isWeb3Enabled ? (
         nowChainId == 5 ? (
           <div class="flex items-center space-x-4">

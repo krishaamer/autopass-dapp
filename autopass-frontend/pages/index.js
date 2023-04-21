@@ -37,12 +37,12 @@ export default function Home() {
         <meta name="description" content="Autopass" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Page className="bg-triangles relative">
+      <Page className="bg-triangles">
         <Navbar title="Autopass" className="absolute top-28" />
         <div className="mt-60"></div>
         {activeTab === "tab-1" && (
           <>
-            <Block strong inset className="space-y-4">
+            <Block strong inset className="space-y-4 bg-slate-100">
               <div class="flex items-center space-x-4">
                 <img
                   className="w-20 h-20 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
@@ -61,7 +61,7 @@ export default function Home() {
                 <ConnectButton moralisAuth={false} />
               </div>
             </Block>
-            <Block strong inset className="space-y-4">
+            <Block strong inset className="space-y-4 bg-slate-100">
               <div class="flex items-center space-x-4">
                 <div className="font-medium dark:text-white">
                   <div>Previous Purchases</div>
@@ -90,7 +90,7 @@ export default function Home() {
             <Autopass />
           </Block>
         )}
-        <div className="mochi absolute bottom-40"></div>
+        <div className="mochi absolute left-4 bottom-40"></div>
         <Tabbar labels={true} icons={false} className="absolute bottom-24">
           <TabbarLink
             active={activeTab === "tab-1"}
