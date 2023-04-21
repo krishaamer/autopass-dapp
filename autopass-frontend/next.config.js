@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const konstaConfig = require("konsta/config")
+
+const nextConfig = konstaConfig({
   reactStrictMode: true,
-}
+})
 
 module.exports = nextConfig

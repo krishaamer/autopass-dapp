@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "daisyui": "^2.51.5",
     "ethers": "^5.7.2",
     "konsta": "^2.0.0",
     "moralis-v1": "^1.12.0",
