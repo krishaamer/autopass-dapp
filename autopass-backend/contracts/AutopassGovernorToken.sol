@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 contract AutopassGovernorToken is ERC20, ERC20Permit, ERC20Votes {
     mapping(address => bool) private _minted;
     uint256 private _totalMinted;
+    uint256 public constant MINIAGT = 1 * 1e18;
 
     constructor()
         ERC20("AutopassGovernorToken", "AGT")
@@ -17,12 +18,12 @@ contract AutopassGovernorToken is ERC20, ERC20Permit, ERC20Votes {
     // The following functions are overrides required by Solidity.
 
     function mintToken() external {
-        require(
-            !_minted[msg.sender],
-            "GovernanceToken: You have already minted a token"
-        );
+        // require(
+        //     !_minted[msg.sender],
+        //     "GovernanceToken: You have already minted a token"
+        // );
         _minted[msg.sender] = true;
-        _mint(msg.sender, 1);
+        _mint(msg.sender, MINIAGT);
         _totalMinted += 1;
     }
 

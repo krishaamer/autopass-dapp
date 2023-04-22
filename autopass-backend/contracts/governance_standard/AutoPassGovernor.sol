@@ -5,6 +5,8 @@ import "../AutopassGovernorToken.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract AutoPassGovernor is Ownable {
+    uint256 public constant MINIAGT = 1 * 1e18;
+
     struct Proposal {
         uint proposalId;
         address proposer;
@@ -26,8 +28,8 @@ contract AutoPassGovernor is Ownable {
     uint256 public quorumNumerator;
 
     //輸入治理代幣合約地址,以及投票通過率,e.g. 5%
-    constructor(address _governanceTokenAddress, uint256 _quorumNumerator) {
-        governanceToken = AutopassGovernorToken(_governanceTokenAddress);
+    constructor(address governanceTokenAddress, uint256 _quorumNumerator) {
+        governanceToken = AutopassGovernorToken(governanceTokenAddress);
         quorumNumerator = _quorumNumerator;
         s_proposalIdCounter = 0;
     }
@@ -42,16 +44,16 @@ contract AutoPassGovernor is Ownable {
         return (mintedTokens() * quorumNumerator) / 100;
     }
 
-    function createProposal(string memory _description) public {
+    function createProposal(string memory description) public {
         require(
-            governanceToken.balanceOf(msg.sender) >= 1,
+            governanceToken.balanceOf(msg.sender) >= MINIAGT,
             "DAO: Only token holders can create proposals"
         );
 
         Proposal memory newProposal;
         newProposal.proposalId = s_proposalIdCounter;
         newProposal.proposer = msg.sender;
-        newProposal.description = _description;
+        newProposal.description = description;
         newProposal.forVotes = 0;
         newProposal.againstVotes = 0;
         newProposal.canExecute = false;
@@ -61,22 +63,22 @@ contract AutoPassGovernor is Ownable {
         s_proposalIdCounter = s_proposalIdCounter + 1;
     }
 
-    function vote(uint256 _proposalId, bool _support) public {
+    function vote(uint256 proposalId, bool support) public {
         require(
-            governanceToken.balanceOf(msg.sender) >= 1,
+            governanceToken.balanceOf(msg.sender) >= MINIAGT,
             "DAO: Only token holders can vote"
         );
-        require(_proposalId < proposals.length, "DAO: Invalid proposal ID");
+        require(proposalId < proposals.length, "DAO: Invalid proposal ID");
         require(
-            !voted[msg.sender][_proposalId],
+            !voted[msg.sender][proposalId],
             "DAO: You have already voted on this proposal"
         );
-        voted[msg.sender][_proposalId] = true;
+        voted[msg.sender][proposalId] = true;
 
-        if (_support) {
-            proposals[_proposalId].forVotes += 1;
+        if (support) {
+            proposals[proposalId].forVotes += 1;
         } else {
-            proposals[_proposalId].againstVotes += 1;
+            proposals[proposalId].againstVotes += 1;
         }
     }
 
