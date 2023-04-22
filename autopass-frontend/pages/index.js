@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Page className="bg-triangles">
         <Navbar title="Autopass" className="absolute top-20" />
-        <div className="mt-60"></div>
+        <div className="mt-40"></div>
         {activeTab === "profile" && <Profile />}
         {activeTab === "vote" && <Vote />}
         {activeTab === "pay" && <Pay />}
