@@ -3,9 +3,10 @@ import { useWeb3Contract, useMoralis } from "react-moralis"
 import { useEffect, useState, useRef } from "react"
 import { ethers } from "ethers"
 import { useNotification } from "web3uikit"
+import { Block } from "konsta/react"
 import { Bell } from "@web3uikit/icons"
 
-const Autopass = () => {
+const Payment = () => {
   // Extract chainId from useMoralis and rename it to chainIdHex, which is a hexadecimal value, e.g., 0xa123...
   const { chainId: chainIdHex, isWeb3Enabled, Moralis, account, deactivateWeb3 } = useMoralis()
   // Declare a variable chainId (which won't conflict with chainIdHex) and convert the hexadecimal value to decimal
@@ -305,42 +306,42 @@ const Autopass = () => {
   }
 
   return (
-    <div className="p-5 rounded-lg bg-slate-100">
-      {isWeb3Enabled ? (
-        nowChainId == chainId ? (
-          <div class="items-center space-x-4">
-            <div>
-              Parking cost: {entranceFee} xDai (
-              {priceConvert(entranceFee)} TWD)
+    <Block strong inset className="space-y-4">
+      <div className="p-5 rounded-lg bg-slate-100">
+        {isWeb3Enabled ? (
+          nowChainId == chainId ? (
+            <div className="items-center space-x-4">
+              <div>
+                Parking cost: {entranceFee} xDai ({priceConvert(entranceFee)} TWD)
+              </div>
+              <div>
+                Contract value: {contractBalance} xDai ({priceConvert(contractBalance)} TWD)
+              </div>
+              <div>
+                User value in contract: {userContractBalance} xDai (
+                {priceConvert(userContractBalance)} TWD)
+              </div>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={callSpendMoney}
+                disabled={isLoading || isFetching}
+              >
+                {isLoading || isFetching ? (
+                  <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                ) : (
+                  <div>Pay Now</div>
+                )}
+              </button>
             </div>
-            <div>
-              Contract value: {contractBalance} xDai (
-              {priceConvert(contractBalance)} TWD)
-            </div>
-            <div>
-              User value in contract: {userContractBalance} xDai (
-              {priceConvert(userContractBalance)} TWD)
-            </div>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={callSpendMoney}
-              disabled={isLoading || isFetching}
-            >
-              {isLoading || isFetching ? (
-                <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-              ) : (
-                <div>Pay Now</div>
-              )}
-            </button>
-          </div>
+          ) : (
+            <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
+          )
         ) : (
-          <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
-        )
-      ) : (
-        <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
-      )}
-    </div>
+          <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
+        )}
+      </div>
+    </Block>
   )
 }
 
-export default Autopass
+export default Payment
