@@ -26,7 +26,7 @@ const Autopass = () => {
   // const [winnerBalance, setWinnerBalance] = useState("0")
   // const [ethPrice, setEthPrice] = useState("0")
   const [userPrice, setUserPrice] = useState(0)
-  const [entranceFee, setEntranceFee] = useState(2)
+  const [entranceFee, setEntranceFee] = useState(0.01)
 
   // Call the getEntranceFee view function from the Raffle contract using the Moralis useWeb3Contract hook to retrieve the minimum entrance fee
   // const { runContractFunction: getEntranceFee } = useWeb3Contract({
