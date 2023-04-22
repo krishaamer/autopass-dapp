@@ -17,13 +17,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page className="bg-triangles">
-        <Navbar title="Autopass" className="absolute top-28" />
+        <Navbar title="Autopass" className="absolute top-20" />
         <div className="mt-60"></div>
         {activeTab === "profile" && <Profile />}
         {activeTab === "vote" && <Vote />}
         {activeTab === "pay" && <Pay />}
         <div className="mochi absolute left-4 bottom-20"></div>
-        <Tabbar labels={true} icons={false} className="absolute bottom-24">
+        <Tabbar labels={true} icons={false} className="absolute bottom-14">
           <TabbarLink
             active={activeTab === "profile"}
             onClick={() => setActiveTab("profile")}
