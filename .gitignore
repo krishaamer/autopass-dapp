@@ -1,29 +1,29 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+autopass-frontend/node_modules
+autopass-frontend/.pnp
+autopass-frontend/.pnp.js
 
 # testing
-/coverage
+autopass-frontend/coverage
 
 # next.js
-/.next/
-/out/
+autopass-frontend/.next/
+autopass-frontend/out/
 
 # production
-/build
+autopass-frontend/build
 
 # misc
-.DS_Store
-*.pem
+autopass-frontend/.DS_Store
+autopass-frontend/*.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+autopass-frontend/npm-debug.log*
+autopass-frontend/yarn-debug.log*
+autopass-frontend/yarn-error.log*
+autopass-frontend/.pnpm-debug.log*
 
 # local env files
 .env*.local
