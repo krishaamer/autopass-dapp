@@ -48,7 +48,7 @@ const Payment = () => {
     functionName: "spendMoney",
     params: {
       thirdPartyPay: ethers.utils.parseEther(entranceFee.toString()),
-      thirdPartyAddress: '0x90F79bf6EB2c4f870365E785982E1f101E93b906',
+      thirdPartyAddress: "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
     },
     msgValue: ethers.utils.parseEther(entranceFee.toString()),
   })
@@ -60,7 +60,7 @@ const Payment = () => {
     functionName: "retrieve",
     params: {
       spender: account,
-      thirdPartyAddress: '0x90F79bf6EB2c4f870365E785982E1f101E93b906',
+      thirdPartyAddress: "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
     },
   })
 
@@ -124,9 +124,7 @@ const Payment = () => {
       // Use try-catch to ensure the webpage continues running.
       // The writing style uses a ternary operator to check if the object exists. If not, pass an empty value.
       try {
-        const userContractBalance = (await retrieve())
-          ? (await retrieve()).toString()
-          : ""
+        const userContractBalance = (await retrieve()) ? (await retrieve()).toString() : ""
 
         const contractBalance = (await getContractBalance())
           ? (await getContractBalance()).toString()
@@ -171,7 +169,7 @@ const Payment = () => {
     // const b = ethers.utils.formatUnits(ethPrice, "ether")
     // const percent = a * b * 100
     // const round = Math.round(percent) / 100
-    return Number(fees)*30
+    return Number(fees) * 30
   }
 
   // Switch network function
@@ -262,7 +260,7 @@ const Payment = () => {
   }
 
   const handleError = async function (error) {
-    console.log(error);
+    console.log(error)
     // const contractState = await getRaffleState()
     // console.log(`contract State : ${contractState}`);
     handleErrorNotification()
@@ -307,31 +305,35 @@ const Payment = () => {
 
   return (
     <Block strong inset className="space-y-4">
-      <div className="p-5 rounded-lg bg-slate-100">
+      <div className="p-5 rounded-lg">
         {isWeb3Enabled ? (
           nowChainId == chainId ? (
-            <div className="items-center space-x-4">
-              <div>
-                Parking cost: {entranceFee} xDai ({priceConvert(entranceFee)} TWD)
+            <div className="items-center">
+              <div className="text-xl">
+                <span className="font-medium">Parking cost:</span> {entranceFee} xDai (
+                {priceConvert(entranceFee)} TWD)
               </div>
-              <div>
-                Contract value: {contractBalance} xDai ({priceConvert(contractBalance)} TWD)
+              <div className="text-xl">
+                <span className="font-medium">Contract value:</span> {contractBalance} xDai (
+                {priceConvert(contractBalance)} TWD)
               </div>
-              <div>
-                User value in contract: {userContractBalance} xDai (
-                {priceConvert(userContractBalance)} TWD)
+              <div className="text-xl">
+                <span className="font-medium">User value in contract:</span> {userContractBalance}{" "}
+                xDai ({priceConvert(userContractBalance)} TWD)
               </div>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={callSpendMoney}
-                disabled={isLoading || isFetching}
-              >
-                {isLoading || isFetching ? (
-                  <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-                ) : (
-                  <div>Pay Now</div>
-                )}
-              </button>
+              <div className="pt-4">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={callSpendMoney}
+                  disabled={isLoading || isFetching}
+                >
+                  {isLoading || isFetching ? (
+                    <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                  ) : (
+                    <div>Pay Now</div>
+                  )}
+                </button>
+              </div>
             </div>
           ) : (
             <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
