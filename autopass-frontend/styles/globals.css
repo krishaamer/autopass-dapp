@@ -16,6 +16,10 @@
     }
 }
 
+html {
+    color-scheme: dark;
+}
+
 .mochi {
     background: url("../public/mochi.svg") no-repeat;
     width: 200px;
