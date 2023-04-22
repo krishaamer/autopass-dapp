@@ -336,10 +336,14 @@ const Payment = () => {
               </div>
             </div>
           ) : (
-            <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
+            <div className="items-center">
+              <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
+            </div>
           )
         ) : (
-          <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
+          <div className="items-center">
+            <div className="text-rose-500 hover:underline font-medium">No web3 wallet</div>
+          </div>
         )}
       </div>
     </Block>
