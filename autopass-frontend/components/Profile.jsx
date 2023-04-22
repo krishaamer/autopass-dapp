@@ -1,5 +1,5 @@
 import { ConnectButton } from "web3uikit"
-import { Block } from "konsta/react"
+import { Block, BlockTitle, List, ListItem } from "konsta/react"
 
 const Profile = () => {
   return (
@@ -23,28 +23,14 @@ const Profile = () => {
           <ConnectButton moralisAuth={false} />
         </div>
       </Block>
-      <Block strong inset className="space-y-4 bg-slate-100">
-        <div className="flex items-center space-x-4">
-          <div className="font-medium dark:text-white">
-            <div>Previous Purchases</div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              2023年1月加入 0.0023 ETH
-            </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              2022年11月加入 0.0133 ETH
-            </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              2022年10月加入 0.0011 ETH
-            </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              2022年9月加入 0.0024 ETH
-            </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              2022年8月加入 0.0123 ETH
-            </div>
-          </div>
-        </div>
-      </Block>
+      <BlockTitle>Previous Purchases</BlockTitle>
+      <List strong inset>
+        <ListItem title="停車 0.0023 ETH" link header="2023年1月加入 " />
+        <ListItem title="停車 0.0133 ETH" link header="2022年11月加入" />
+        <ListItem title="停車 0.0011 ETH" link header="2022年10月加入" />
+        <ListItem title="停車 0.0024 ETH" link header="2022年9月加入" />
+        <ListItem title="停車 0.0123 ETH" link header="2022年8月加入 " />
+      </List>
     </>
   )
 }

@@ -24,8 +24,8 @@
 }
 
 .artboard.phone-1 {
-    width: 570px;
-    height: 900px;
+    height: 90vh;
+    width: 38rem;
     overflow: hidden;
 }
 

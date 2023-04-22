@@ -1,21 +1,13 @@
 import Head from "next/head"
-import React, { useLayoutEffect, useState } from "react"
-import Payment from "../components/Payment"
+import React, { useState } from "react"
+import Pay from "../components/Pay"
+import Vote from "../components/Vote"
 import Profile from "../components/Profile"
 import { Page, Navbar, Tabbar, TabbarLink } from "konsta/react"
 
 export default function Home() {
-  const [sheetOpened, setSheetOpened] = useState(false)
-  const [activeTab, setActiveTab] = useState("tab-1")
-  const [darkMode, setDarkMode] = useState(false)
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-    document.documentElement.classList.toggle("dark")
-  }
 
-  useLayoutEffect(() => {
-    setDarkMode(document.documentElement.classList.contains("dark"))
-  })
+  const [activeTab, setActiveTab] = useState("profile")
 
   return (
     <>
@@ -28,17 +20,23 @@ export default function Home() {
         <Navbar title="Autopass" className="absolute top-28" />
         <div className="mt-60"></div>
         {activeTab === "profile" && <Profile />}
-        {activeTab === "payment" && <Payment />}
-        <div className="mochi absolute left-4 bottom-40"></div>
+        {activeTab === "vote" && <Vote />}
+        {activeTab === "pay" && <Pay />}
+        <div className="mochi absolute left-4 bottom-20"></div>
         <Tabbar labels={true} icons={false} className="absolute bottom-24">
           <TabbarLink
             active={activeTab === "profile"}
             onClick={() => setActiveTab("profile")}
-            label={"Profile"}
+            label={"Login"}
           />
           <TabbarLink
-            active={activeTab === "payment"}
-            onClick={() => setActiveTab("payment")}
+            active={activeTab === "vote"}
+            onClick={() => setActiveTab("vote")}
+            label={"Vote"}
+          />
+          <TabbarLink
+            active={activeTab === "pay"}
+            onClick={() => setActiveTab("pay")}
             label={"Pay"}
           />
         </Tabbar>
