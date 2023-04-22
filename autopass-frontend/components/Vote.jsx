@@ -1,6 +1,9 @@
-import { Block, BlockTitle, List, ListItem } from "konsta/react"
+import React, { useState } from "react"
+import { Radio, Block, BlockTitle, List, ListItem } from "konsta/react"
 
 const Vote = () => {
+  const [groupValue, setGroupValue] = useState("Option 2")
+
   return (
     <>
       <Block strong inset className="space-y-4">
@@ -16,13 +19,44 @@ const Vote = () => {
           <input type="submit" value="Submit" className="btn mt-2" />
         </div>
       </Block>
-      <BlockTitle>Votes</BlockTitle>
+      <BlockTitle>Voting</BlockTitle>
       <List strong inset>
-        <ListItem title="Vote 1" />
-        <ListItem title="Vote 2" />
-        <ListItem title="Vote 3" />
-        <ListItem title="Vote 4" />
-        <ListItem title="Vote 5" />
+        <ListItem
+          label
+          title="Option 1"
+          media={
+            <Radio
+              component="div"
+              value="Option 1"
+              checked={groupValue === "Option 1"}
+              onChange={() => setGroupValue("Option 1")}
+            />
+          }
+        />
+        <ListItem
+          label
+          title="Option 2"
+          media={
+            <Radio
+              component="div"
+              value="Option 2"
+              checked={groupValue === "Option 2"}
+              onChange={() => setGroupValue("Option 2")}
+            />
+          }
+        />
+        <ListItem
+          label
+          title="Option 3"
+          media={
+            <Radio
+              component="div"
+              value="Option 3"
+              checked={groupValue === "Option 3"}
+              onChange={() => setGroupValue("Option 3")}
+            />
+          }
+        />
       </List>
     </>
   )
