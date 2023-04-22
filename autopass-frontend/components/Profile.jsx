@@ -1,7 +1,9 @@
+import React from "react"
 import { ConnectButton } from "web3uikit"
-import { Block, BlockTitle, List, ListItem } from "konsta/react"
+import { Block } from "konsta/react"
 
 const Profile = () => {
+
   return (
     <>
       <Block strong inset className="space-y-4 bg-slate-100">
@@ -23,14 +25,6 @@ const Profile = () => {
           <ConnectButton moralisAuth={false} />
         </div>
       </Block>
-      <BlockTitle>Previous Purchases</BlockTitle>
-      <List strong inset>
-        <ListItem title="停車 0.0023 ETH" link header="2023年1月加入 " />
-        <ListItem title="停車 0.0133 ETH" link header="2022年11月加入" />
-        <ListItem title="停車 0.0011 ETH" link header="2022年10月加入" />
-        <ListItem title="停車 0.0024 ETH" link header="2022年9月加入" />
-        <ListItem title="停車 0.0123 ETH" link header="2022年8月加入 " />
-      </List>
     </>
   )
 }

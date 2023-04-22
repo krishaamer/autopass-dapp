@@ -29,6 +29,7 @@
     overflow: hidden;
 }
 
-.fixed {
-    position: absolute !important;
+
+[data-testid="test-wallet-modal"] {
+    z-index: 999999999999;
 }
