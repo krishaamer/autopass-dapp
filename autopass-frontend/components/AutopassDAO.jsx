@@ -184,7 +184,9 @@ const AutopassDAO = () => {
               break;
             case 5:
               tempProposal.canExcute = data
-              proposals.push(tempProposal)
+              if (tempProposal.proposer !== '0x0000000000000000000000000000000000000000') {
+                proposals.push(tempProposal)
+              }
               tempProposal = {}
               break;
 
@@ -336,7 +338,7 @@ const AutopassDAO = () => {
         onError: handleError,
       })
 
-      await callDelegate()
+      // await callDelegate()
 
     } catch (error) {
       handleErrorNotification()
@@ -395,28 +397,9 @@ const AutopassDAO = () => {
                 <div>Mint!</div>
               )}
             </button>
-            <List strongIos insetIos>
-              <ListInput
-                label="Issue"
-                type="text"
-                placeholder="Give me an idea"
-                disabled={isLoading || isFetching}
-                value={issue.value}
-                onChange={onIssueChange}
-              />
-            </List>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={callCreateProposal}
-              disabled={isLoading || isFetching}
-            >
-              {isLoading || isFetching ? (
-                <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-              ) : (
-                <div>Submit!</div>
-              )}
-            </button>
-
+            <div className="font-bold pb-4 text-center" style={{color: '#2d28c9', 'font-size': '24px'}}>
+              Proposals
+            </div>
             <List strongIos outlineIos>
               {proposalList.map(proposal => {
                 return (
@@ -447,6 +430,27 @@ const AutopassDAO = () => {
                 })
               }
             </List>
+            <List strongIos insetIos>
+              <ListInput
+                label="Issue"
+                type="text"
+                placeholder="Give me an idea"
+                disabled={isLoading || isFetching}
+                value={issue.value}
+                onChange={onIssueChange}
+              />
+            </List>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={callCreateProposal}
+              disabled={isLoading || isFetching}
+            >
+              {isLoading || isFetching ? (
+                <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+              ) : (
+                <div>Submit!</div>
+              )}
+            </button>
           </div>
         ) : (
           <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>

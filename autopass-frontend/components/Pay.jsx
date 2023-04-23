@@ -195,6 +195,9 @@ const Payment = () => {
         {isWeb3Enabled ? (
           nowChainId == chainId ? (
             <div className="items-center">
+              <div className="font-bold pb-4 text-center" style={{color: '#2d28c9', 'font-size': '24px'}}>
+                Cryoto Pay
+              </div>
               <div className="text-xl">
                 <span className="font-medium">Parking cost:</span> {entranceFee} xDai (
                 {priceConvert(entranceFee)} TWD)
@@ -203,7 +206,7 @@ const Payment = () => {
                 <span className="font-medium">Contract value:</span> {contractBalance} xDai (
                 {priceConvert(contractBalance)} TWD)
               </div>
-              <div className="pt-4">
+              <div className="pt-8 flex justify-center">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                   onClick={callSpendMoney}
