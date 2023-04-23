@@ -14,8 +14,8 @@ const Profile = () => {
             alt="Bordered avatar"
           />
           <div className="font-medium dark:text-white">
-            <div>林美玲</div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">2021年1月加入</div>
+            <div>Noah</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">2021 Jan Joined</div>
           </div>
         </div>
         <div className="flex items-center space-x-4">

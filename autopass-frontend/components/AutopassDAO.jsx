@@ -397,7 +397,7 @@ const AutopassDAO = () => {
                 <div>Mint!</div>
               )}
             </button>
-            <div className="font-bold pb-4 text-center" style={{color: '#2d28c9', 'font-size': '24px'}}>
+            <div className="font-bold text-center" style={{color: '#2d28c9', 'font-size': '24px'}}>
               Proposals
             </div>
             <List strongIos outlineIos>
@@ -430,6 +430,9 @@ const AutopassDAO = () => {
                 })
               }
             </List>
+            <div className="font-bold text-center" style={{color: '#2d28c9', 'font-size': '24px'}}>
+              New wish
+            </div>
             <List strongIos insetIos>
               <ListInput
                 label="Issue"
@@ -440,17 +443,19 @@ const AutopassDAO = () => {
                 onChange={onIssueChange}
               />
             </List>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={callCreateProposal}
-              disabled={isLoading || isFetching}
-            >
-              {isLoading || isFetching ? (
-                <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
-              ) : (
-                <div>Submit!</div>
-              )}
-            </button>
+            <div className="flex justify-center">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={callCreateProposal}
+                disabled={isLoading || isFetching}
+              >
+                {isLoading || isFetching ? (
+                  <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                ) : (
+                  <div>Submit!</div>
+                )}
+              </button>
+            </div>
           </div>
         ) : (
           <div className="text-blue-600 hover:underline font-medium">Wrong chain</div>
